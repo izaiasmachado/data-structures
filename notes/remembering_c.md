@@ -251,7 +251,7 @@ int main () {
     return 0;
 }
 ```
-## What if you change your mind? Rellocation
+## What if you change your mind? Rellocation and Calloc
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -263,7 +263,7 @@ int main () {
    n = 5;
    printf("Enter number of elements: %d\n", n);
   
-   ptr = (int*)calloc(n, sizeof(int));
+   ptr = (int *) calloc(n, sizeof(int));
   
    if (ptr == NULL) {
       printf("Memory not allocated.\n");
@@ -271,12 +271,12 @@ int main () {
    } else {
       printf("Memory successfully allocated using calloc.\n");
   
-      for (i = 0; i < n; ++i) {
+      for (i = 0; i < n; i++) {
          ptr[i] = i + 1;
       }
   
       printf("The elements of the array are: ");
-      for (i = 0; i < n; ++i) {
+      for (i = 0; i < n; i++) {
          printf("%d%s", ptr[i], (i == (n - 1) ? "\n" : ", ")); // 1, 2, 3, 4, 5
       }
   
@@ -290,12 +290,12 @@ int main () {
       } else {
          printf("Memory successfully re-allocated using realloc.\n");
   
-         for (i = 5; i < n; ++i) {
+         for (i = 5; i < n; i++) {
             ptr[i] = i + 1;
          }
   
          printf("The elements of the array are: ");
-         for (i = 0; i < n; ++i) {
+         for (i = 0; i < n; i++) {
             printf("%d%s", ptr[i], (i == (n - 1) ? "\n" : ", ")); // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
          }
 
